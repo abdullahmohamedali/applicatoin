@@ -1,0 +1,9 @@
+WIDTH = 640
+HIGHT = 480
+
+PLAYER_LAYER = 2
+GROUND_LAYER = 1
+tile_size = 32
+BLACK = (0,0,0)
+FPS = 60
+RED = (255, 0 , 0)
