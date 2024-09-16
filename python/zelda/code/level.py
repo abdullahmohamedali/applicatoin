@@ -17,13 +17,14 @@ class level:
         self.create_map()
 
     def create_map(self):
-        layouts={
-                'boundary': import_csv_layout('python/zelda/map/map_FloorBlocks.csv'),
-                'grass': import_csv_layout('python/zelda/map/map_Grass.csv'),
-                'object': import_csv_layout('python/zelda/map/map_LargeObjects.csv')
+        layouts={   
+            'boundary': import_csv_layout('python/zelda/map/map_FloorBlocks.csv'),
+            'grass': import_csv_layout('python/zelda/map/map_Grass.csv'),
+            'object': import_csv_layout('python/zelda/map/map_LargeObjects.csv'),
         }
         graphics ={
-            'grass': import_folder('python/zelda/graphics/grass')
+            'grass': import_folder('python/zelda/graphics/grass'),
+            'objects': import_folder('python/zelda/graphics/objects')
         }
         for style,layout in layouts.items():
             for row_index,row in enumerate(layout):
@@ -34,13 +35,12 @@ class level:
                         if style == 'boundary':
                             Tile((x,y),[self.obstacle_sprites],'invisible' )
                         if style == 'grass':
-                            pass
+                            random_grass_image = choice(graphics['grass'])
+                            Tile((x,y),[self.visible_sprites,self.obstacle_sprites],'grass', random_grass_image)
                         if style == 'object':
-                            pass
-        #         if col == 'x':
-        #             Tile((x,y),[self.visible_sprites,self.obstacle_sprites])
-        #         if col == 'p':
-        #             self.player = Player((x,y),[self.visible_sprites], self.obstacle_sprites)
+                            surf = graphics['object'][int(col)]
+                            Tile((x,y),[self.visible_sprites,self.obstacle_sprites],'object', surf)
+                            
         self.player = Player((2000,1430),[self.visible_sprites], self.obstacle_sprites)
     def run(self):
         self.visible_sprites.custom_draw(self.player)
