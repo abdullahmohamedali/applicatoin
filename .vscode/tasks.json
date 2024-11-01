@@ -1,0 +1,21 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run Python3 Script",
+            "type": "shell",
+            "command": "python3",
+            "args": [
+                "${workspaceFolder}/python/pydew vally/code/main.py"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceFolder}/python/pydew vally/code"
+            }
+        }
+    ]
+}

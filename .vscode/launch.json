@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run Python Script (Terminal)",
+            "type": "python",  // You can change this to debugpy if you see warnings
+            "request": "launch",
+            "program": "${workspaceFolder}/python/pydew vally/code/main.py",  // Path to your main script
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/python/pydew vally/code",  // Set correct working directory
+            "justMyCode": true,
+            "pythonPath": "python3"  // Ensure it's using python3 interpreter
+        }
+    ]
+}
