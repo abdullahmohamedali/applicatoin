@@ -2,6 +2,8 @@ import pygame
 from settings import *
 from support import *
 from timer import Timer
+import time
+from sprites import Tree
 
 class Player(pygame.sprite.Sprite):
 	def __init__(self, pos, group, collision_sprites, tree_sprites):
@@ -43,8 +45,6 @@ class Player(pygame.sprite.Sprite):
 		self.seed_index = 0
 		self.selected_seed = self.seeds[self.seed_index]
 
-		# interaction
-		self.tree_sprites = tree_sprites
 		# inventory
 		self.item_inventory = {
 			'wood':   0,
@@ -53,6 +53,8 @@ class Player(pygame.sprite.Sprite):
 			'tomato': 0
 		}
 
+		# interaction
+		self.tree_sprites = tree_sprites
 
 	def use_tool(self):
 		print('tool use')
@@ -142,7 +144,6 @@ class Player(pygame.sprite.Sprite):
 				self.seed_index += 1
 				self.seed_index = self.seed_index if self.seed_index < len(self.seeds) else 0
 				self.selected_seed = self.seeds[self.seed_index]
-
 
 	def get_status(self):
 		
